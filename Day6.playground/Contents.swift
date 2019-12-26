@@ -73,10 +73,20 @@ func travel1(action: () -> Void) {
     print("I arrived!")
 }
 //last paramter is a closure, so we can call travel using trailing closure syntax
-travel(){
+travel1(){
+    //rather than specifying the closure parameter, we're just writing the closure directly
     print("I'm driving in my car")
 }
 //note: because there aren't any other parameters, we can eliminate the ()
 travel1{
     print("I'm driving in my car")
+}
+//another example:
+func repeatAction(count: Int, action: () -> Void){
+    for _ in 0..<count{
+        action()
+    }
+}
+repeatAction(count: 5){
+    print("Hello world") //this is taking place of action closure
 }
